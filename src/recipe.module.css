@@ -1,0 +1,11 @@
+.page{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.recipe{
+    border-radius: 10px solid #ccc;
+    box-shadow: 0 5px 20px rgba(71,71,71);
+    width: 30%;
+    height:10vh;
+}
