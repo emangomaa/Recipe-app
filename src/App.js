@@ -3,10 +3,12 @@ import Recipe from "./Recipe";
 
 const App = ()=> {
 
+  //get API ID and KEY
   const APP_ID = "9bafda05";
   const APP_KEY = "aed23c425dc7be22afe6c8b018baa0ea";
 
   const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
+
 
   const [recipes,setRecipes] = useState([]);
   const [search,setSearch]=useState('');
@@ -17,11 +19,16 @@ const App = ()=> {
     getRecipes();
   },[query]);
 
+
+  //fetch API Data
   const getRecipes = async ()=>{
     const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
     const data = await response.json();
     setRecipes(data.hits)
   }
+
+  //after get search from input field 
+  //set the value to query value
    const getSearch = (e)=>{
     e.preventDefault();
     setQuery(search)
