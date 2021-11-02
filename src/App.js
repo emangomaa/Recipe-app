@@ -35,17 +35,26 @@ const App = ()=> {
     setSearch('')
    }
   return (
-    <div style={{justifyContent:"center" ,padding:"100px 30px 50px"}} className="row">
-      <form onSubmit={getSearch} className="col-8 col-md-6 text-center mb-5">
-        <input style={{outline:"none",border:"1px solid #ddd",borderRadius:"5px"}} className="w-50 p-2" type="text" value={search} onChange={e => setSearch(e.target.value)}/>
-        <button style={{border:"1px solid #ddd"}} className="w-25 p-2" type="submit">Search</button>
-      </form>
-      <div style={{justifyContent:"space-around"}} className="row mt-5">
-      {recipes.map((recipe,index) =>(
-        <Recipe key={index} label={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image} mealType={recipe.recipe.mealType}alt={query}/>
-      ))}
+    <>
+      <div className="container text-center p-5">
+        <div className="row text-center">
+          <div className="col-12">
+            <h1>Search What Your Favorite Meal ?</h1>
+          </div>
+        </div>
+        <div style={{justifyContent:"center"}} className="row my-4">
+          <form onSubmit={getSearch} className="col-12 text-center mb-5">
+            <input style={{outline:"none",border:"1px solid #ddd",borderRadius:"5px"}} className="w-50 p-2" type="text" value={search} onChange={e => setSearch(e.target.value)}/>
+            <button style={{border:"1px solid #ddd",width:"100px"}} className="p-2" type="submit">Search</button>
+          </form>
+        </div>
+        <div style={{justifyContent:"space-around"}} className="row mt-5">
+          {recipes.map((recipe,index) =>(
+                  <Recipe key={index} label={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image} mealType={recipe.recipe.mealType}alt={query}/>
+                ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
